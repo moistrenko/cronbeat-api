@@ -115,6 +115,7 @@ rsync -a cronbeat-api-tmp/ cronbeat-api/
 rm -rf cronbeat-api-tmp
 
 cd cronbeat-api
+composer require laravel/sail --dev
 php artisan sail:install --with=pgsql,redis
 ./vendor/bin/sail up -d
 ./vendor/bin/sail artisan migrate
@@ -123,9 +124,13 @@ php artisan sail:install --with=pgsql,redis
 Что здесь происходит по шагам:
 
 - `composer create-project` скачивает шаблон приложения Laravel и его зависимости;
-- `sail:install` генерирует `docker-compose.yml` с контейнерами приложения,
-  PostgreSQL и Redis — открой этот файл и прочитай его целиком, там всего
-  страница текста, и это твой первый настоящий compose-файл;
+- `composer require laravel/sail --dev` ставит Sail. В Laravel 13 его нет
+  в шаблоне: `php artisan sail:install` без этого шага падает с
+  `There are no commands defined in the "sail" namespace`;
+- `sail:install` генерирует `compose.yaml` (или `docker-compose.yml`)
+  с контейнерами приложения, PostgreSQL и Redis — открой этот файл
+  и прочитай его целиком, там всего страница текста, и это твой первый
+  настоящий compose-файл;
 - `sail up -d` поднимает контейнеры в фоне;
 - `migrate` применяет миграции из коробки и заодно проверяет, что приложение
   действительно достучалось до базы.
@@ -252,3 +257,9 @@ git push -u origin main
 
 Спринт 1: проектирование базы данных, миграции, первая модель Eloquent
 и REST API проверок с тестами на Pest.
+
+Карта «синьорский фронт + JS/TS + паттерны + алгоритмы» лежит в
+[curriculum.md](../curriculum.md). В спринте 0 это **не** основная работа.
+Если останется час: замыкания в [learn.javascript.ru](https://learn.javascript.ru)
+(главы про замыкания) и две easy на массивы на LeetCode. Если не останется —
+спокойно переноси на спринт 1, продукт важнее.

@@ -134,6 +134,18 @@
 
 ---
 
+## JavaScript, TypeScript, паттерны, алгоритмы
+
+Не читай это сейчас целиком. Карта — [curriculum.md](curriculum.md),
+конкретная порция — в файле спринта.
+
+- [Современный учебник JavaScript](https://learn.javascript.ru) — русский.
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+- [Refactoring Guru: паттерны](https://refactoring.guru/ru/design-patterns)
+- [LeetCode](https://leetcode.com) — каты на TypeScript, 1–2 в неделю.
+
+---
+
 ## SQL и PostgreSQL
 
 Материалы добавлю подробно к спринту 1. Пока для разогрева:
